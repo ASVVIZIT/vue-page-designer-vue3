@@ -6,10 +6,10 @@
     "type": "git",
     "url": "ASVVIZIT/vue-page-designer-vue3"
   },
-  "module": "dist/vue-page-designer.esm.js",
-  "unpkg": "dist/vue-page-designer.min.js",
-  "main": "dist/vue-page-designer.js",
-  "style": "dist/vue-page-designer.css",
+  "module": "dist/vue-page-designer-vue3.esm.js",
+  "unpkg": "dist/vue-page-designer-vue3.min.js",
+  "main": "dist/vue-page-designer-vue3.js",
+  "style": "dist/vue-page-designer-vue3.css",
   "license": "WTFPL",
   "files": [
     "dist/*.js",
