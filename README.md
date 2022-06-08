@@ -88,6 +88,11 @@ You can install default widget in `vue-page-designer-widgets-vue3`
 ```bash
 yarn add vue-page-designer-widgets-vue3
 ```
+or 
+
+```bash
+npm i vue-page-designer-widgets-vue3
+```
 
 Import and use it
 
