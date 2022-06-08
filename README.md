@@ -1,4 +1,4 @@
-# vue-page-designer
+# vue-page-designer-vue3 and vue2
 
 <p align="center">
   <a href="https://ASVVIZIT.github.io/vue-page-designer-vue3/" target="_blank">
