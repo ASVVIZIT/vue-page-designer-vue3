@@ -21,7 +21,7 @@ You can start it quickly, in main.js:
 ```js
 import Vue from 'vue';
 import vuePageDesigner from 'vue-page-designer-vue3'
-import 'vue-page-designer/dist/vue-page-designer-vue3.css'
+import 'vue-page-designer-vue3/dist/vue-page-designer-vue3.css'
 import App from './App.vue';
 
 Vue.use(vuePageDesigner);
@@ -37,7 +37,7 @@ Next, use it:
 ```html
 <template>
   <div id="app">
-    <vue-page-designer />
+    <vue-page-designer-vue3 />
   </div>
 </template>
 
@@ -69,14 +69,14 @@ The `value` came from `save`.
 ```html
 <template>
   <div id="app">
-    <vue-page-designer :value="value" />
+    <vue-page-designer-vue3 :value="value" />
   </div>
 </template>
 ```
 
 ## Parameter: `widgets`
 
-You can install default widget in `vue-page-designer-widgets`
+You can install default widget in `vue-page-designer-widgets-vue3`
 
 ```bash
 yarn add vue-page-designer-widgets-vue3
@@ -87,7 +87,7 @@ Import and use it
 ```html
 <template>
   <div id="app">
-    <vue-page-designer :widgets="widgets" />
+    <vue-page-designer-vue3 :widgets="widgets" />
   </div>
 </template>
 <script>
@@ -108,7 +108,7 @@ Set locale to RU
 ```html
 <template>
   <div id="app">
-    <vue-page-designer locale="ru" />
+    <vue-page-designer-vue3 locale="ru" />
   </div>
 </template>
 ```
@@ -118,7 +118,7 @@ Set locale to RU
 ```html
 <template>
   <div id="app">
-    <vue-page-designer @save="(data) => { console.log('send the value data to your server', data) }" />
+    <vue-page-designer-vue3 @save="(data) => { console.log('send the value data to your server', data) }" />
   </div>
 </template>
 ```
@@ -128,7 +128,7 @@ Set locale to RU
 ```html
 <template>
   <div id="app">
-    <vue-page-designer :upload="upload" />
+    <vue-page-designer-vue3 :upload="upload" />
   </div>
 </template>
 <script>
