@@ -16,8 +16,8 @@ const version = process.env.VERSION || require('../package.json').version;
 const common = {
   banner:
     `/**
-    * Vue-page-designer v${version}
-    * (c) ${new Date().getFullYear()} fireyy
+    * Vue-page-designer-vue3 v${version}
+    * (c) ${new Date().getFullYear()} ASVVIZIT
     * @license WTFPL
     */`,
   paths: {
@@ -27,19 +27,19 @@ const common = {
   },
   builds: {
     umd: {
-      file: 'vue-page-designer.js',
+      file: 'vue-page-designer-vue3.js',
       format: 'umd',
-      name: 'vuePageDesigner',
+      name: 'vuePageDesignerVue3',
       env: 'development'
     },
     umdMin: {
-      file: 'vue-page-designer.min.js',
+      file: 'vue-page-designer-vue3.min.js',
       format: 'umd',
-      name: 'vuePageDesigner',
+      name: 'vuePageDesignerVue3',
       env: 'production'
     },
     esm: {
-      file: 'vue-page-designer.esm.js',
+      file: 'vue-page-designer-vue3.esm.js',
       format: 'es'
     }
   }
