@@ -42,7 +42,7 @@ import slider from './components/slider.vue'
 import inter from './plugins/i18n'
 
 export default {
-  name: 'VuePageDesigner',
+  name: 'VuePageDesignerVue3',
   inter,
   components: {
     navbar, // верхняя панель навигации

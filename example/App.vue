@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-page-designer
+    <vue-page-designer-vue3
       :value="value"
       :widgets="widgets"
       :upload="handleUpload"
