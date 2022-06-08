@@ -21,7 +21,7 @@ You can start it quickly, in main.js:
 ```js
 import Vue from 'vue';
 import vuePageDesigner from 'vue-page-designer-vue3'
-import 'vue-page-designer/dist/vue-page-designer.css'
+import 'vue-page-designer/dist/vue-page-designer-vue3.css'
 import App from './App.vue';
 
 Vue.use(vuePageDesigner);
