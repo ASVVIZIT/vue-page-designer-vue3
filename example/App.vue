@@ -5,7 +5,7 @@
       :widgets="widgets"
       :upload="handleUpload"
       :upload-option="uploadOption"
-      locale="cn"
+      locale="ru"
       @save="handleSave" />
   </div>
 </template>
@@ -33,11 +33,11 @@ export default {
 
   methods: {
     handleSave (data) {
-      console.log('saving:', data)
+      console.log('saving (сохранение):', data)
       window.localStorage.setItem('vpd-data', JSON.stringify(data))
     },
     handleUpload (files) {
-      console.log('uploading:', files)
+      console.log('uploading (загрузка):', files)
       return new Promise(resolve => {
         resolve({
           files: files,

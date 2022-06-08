@@ -1,4 +1,5 @@
 <!-- based on muse-ui -->
+<!-- на основе Muse-UI -->
 <!-- http://www.muse-ui.org/#/slider -->
 <template>
   <div :class="{'mu-lisder-wrapper': tuning}">
@@ -125,7 +126,7 @@ export default {
       this.focused = false
     },
 
-    // 从点击位置更新 value
+    // Обновление из выбранного местоположения (value)
     setValue (e) {
       const { $el, max, min, step } = this
       let value = (e.clientX - $el.firstElementChild.getBoundingClientRect().left) / $el.firstElementChild.offsetWidth * (max - min)
@@ -140,7 +141,7 @@ export default {
       this.inputValue = value
     },
 
-    // 拖拽控制
+    // управление перетаскиванием
     onDragStart (e) {
       this.dragging = true
       this.active = true

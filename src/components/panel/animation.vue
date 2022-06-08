@@ -37,7 +37,7 @@
           <input
             v-model.trim="currentAnimation.name"
             type="text"
-            placeholder="动画名称，仅限英文"
+            placeholder="Название анимации, только на английском языке"
             @input="validateName">
         </div>
       </div>
@@ -49,7 +49,7 @@
           <input
             v-model.number="currentAnimation.duration"
             type="text"
-            placeholder="请输入大于0的数字">
+            placeholder="Пожалуйста, введите число больше 0">
         </div>
       </div>
 
@@ -60,7 +60,7 @@
           <input
             v-model.number="currentAnimation.delay"
             type="text"
-            placeholder="请输入不小于0的数字">
+            placeholder="Пожалуйста, введите число не меньше 0">
         </div>
       </div>
 
@@ -71,7 +71,7 @@
           <input
             v-model.number="currentAnimation.iteration"
             type="text"
-            placeholder="输入0表示无限循环">
+            placeholder="Введите 0 для бесконечного цикла">
         </div>
       </div>
 
@@ -122,7 +122,7 @@
         :key="i">
         <div class="panel-row">
           <vpd-icon name="stop-circle" />
-          <div class="panel-label">stop - {{ i }}</div>
+          <div class="panel-label">остановка - {{ i }}</div>
           <div class="panel-value">{{ val.stop }}%</div>
           <div class="panel-slider-wrap">
             <vpd-slider
@@ -132,7 +132,7 @@
         </div>
         <textarea
           v-model="val.css"
-          placeholder="IMPORTANT: use rem, not px"/>
+          placeholder="ВАЖНО: используйте rem, а не px"/>
         <div style="margin: 10px 0 0 20px;">
           <button
             v-if="i + 1 === currentAnimation.keyframes.length"
@@ -171,7 +171,7 @@ export default {
 
   watch: {
     currentName: function (val) {
-      // 设置选中元件的动画名称
+      // Установите имя анимации выбранного символа
       if (this.activeElement.animationName !== undefined) {
         this.activeElement.animationName = val
       }

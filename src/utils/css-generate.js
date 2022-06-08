@@ -1,5 +1,5 @@
 /**
- * 用于生成动画 keyframes 字符串
+ * Строка, используемая для создания ключевых кадров анимации. (keyframes)
  *
  * @name { String } animation-name
  * @animation { Object } animation's properties
@@ -25,7 +25,7 @@ export function getAnimateCss (name, animation, stops, needFormat = true) {
 
   var animateCss = 'animation: ' + values.join(' ') + ';'
 
-  // 生成 keyframes 代码
+  // Сгенерировать код ключевых кадров (keyframes)
   var keyframes = []
   if (needFormat) {
     stops.map(val => {

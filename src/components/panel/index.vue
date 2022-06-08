@@ -53,7 +53,7 @@ export default {
   },
 
   computed: {
-    // 选中元素对象
+    // выбранный элемент объекта
     activeElement () {
       return this.$vpd.state.activeElement
     }
@@ -91,7 +91,7 @@ export default {
 }
 .panel-label {
   display: inline-block;
-  width: 80px;
+  width: 160px;
   height: 36px;
   padding-left: 6px;
   color: #999;

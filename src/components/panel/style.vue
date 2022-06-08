@@ -2,7 +2,7 @@
   <div
     v-if="!activeElement.page && tab === 1"
     class="panel-wrap">
-    <!-- 公共属性 -->
+    <!-- общее имущество -->
     <div class="panel-row">
       <vpd-icon name="layers" />
       <div class="panel-label">{{ $t('data.levels') }}</div>
@@ -63,7 +63,7 @@
       </div>
     </div>
 
-    <!-- 组件样式 -->
+    <!-- стиль компонента -->
     <component
       v-for="(item, i) in widgetStyle"
       v-if="item.type === activeElement.type"
@@ -71,7 +71,7 @@
       :key="i"
       :active-element="activeElement" />
 
-    <!-- 添加到容器 -->
+    <!-- добавить в контейнер -->
     <div v-if="activeElement.isChild">
       <hr>
       <div class="panel-row">
@@ -79,7 +79,7 @@
         <div class="panel-label">{{ $t('data.names.belonging') }}</div>
         <div class="panel-value">
           <select v-model="activeElement.belong">
-            <option>page</option>
+            <option>страница</option>
             <option
               v-for="(val, index) in containerName"
               :key="index">{{ val }}</option>
@@ -106,12 +106,12 @@ export default {
     widgetStyle () {
       return widget.getWidgetStyle()
     },
-    // 页面高度
+    // высота страницы
     height () {
       return this.$vpd.state.page.height
     },
 
-    // 容器名称
+    // имя контейнера
     containerName () {
       var arr = []
       this.$vpd.state.widgets.map(

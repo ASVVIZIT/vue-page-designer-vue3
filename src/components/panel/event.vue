@@ -15,7 +15,7 @@
         <input
           v-model="activeElement.href"
           type="text"
-          placeholder="绝对路径，以https://开头">
+          placeholder="Абсолютный путь, начинающийся с https://">
       </div>
     </div>
   </div>

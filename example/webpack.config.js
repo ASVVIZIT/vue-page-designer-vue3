@@ -7,6 +7,10 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const crypto = require('crypto')
+const crypto_orig_createHash = crypto.createHash
+crypto.createHash = algorithm => crypto_orig_createHash(algorithm === 'md4' ? 'sha256' : algorithm)
+
 const env = process.env.NODE_ENV
 const production = env === 'production'
 
@@ -26,6 +30,7 @@ const config = {
     app: path.join(__dirname, './index.js')
   },
   output: {
+    hashFunction: 'sha256',
     path: path.join(__dirname, 'dist'),
     filename: 'js/[name].js'
   },
@@ -45,12 +50,13 @@ const config = {
     poll: 1000
   },
   devServer: {
-    historyApiFallback: true,
+    contentBase: path.join(__dirname),
+    // historyApiFallback: true,
     hot: true,
     inline: true,
     stats: 'errors-only',
-    host: '0.0.0.0',
-    port: 8080
+    host: '127.0.0.1',
+    port: 9001
   },
   module: {
     rules: [
@@ -75,7 +81,13 @@ const config = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            js: [{ loader: 'cache-loader' }],
+          },
+          extractCSS: true,
+        },
       },
       {
         test: /\.css$/,
@@ -99,7 +111,7 @@ const config = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json']
+    extensions: ['.js', '.jsx', '.json', '.scss', '.vue']
   }
 }
 

@@ -3,7 +3,7 @@
     :title="title"
     class="icon svg-icon"
     @click="handleClick"
-    v-html="icon"/>
+    v-html="icon" />
 </template>
 <script>
 export default {

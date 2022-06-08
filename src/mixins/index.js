@@ -3,7 +3,7 @@ var move = {
     initmovement (e) {
       var target = this.$vpd.state.activeElement
 
-      // 设置移动状态初始值
+      // Установить начальное значение мобильного состояния
       this.$vpd.commit('initmove', {
         startX: e.pageX,
         startY: e.pageY,
@@ -11,10 +11,10 @@ var move = {
         originY: target.top
       })
 
-      // 绑定鼠标移动事件
+      // Привязать событие перемещения мыши
       document.addEventListener('mousemove', this.handlemousemove, true)
 
-      // 取消鼠标移动事件
+      // Отменить событие перемещения мыши событие перемещения
       document.addEventListener('mouseup', this.handlemouseup, true)
     },
 

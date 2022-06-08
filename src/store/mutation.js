@@ -1,7 +1,7 @@
 const generate = require('nanoid/generate')
 
 export default {
-  // 选中元件与取消选中
+  // Проверка и снятие отметки с компонентов
   select (state, payload) {
     state.uuid = payload.uuid
     if (payload.uuid === -1) {
@@ -14,7 +14,7 @@ export default {
     }
   },
 
-  // 设置 mousemove 操作的初始值
+  // Установите начальное значение операции mousemove
   initmove (state, payload) {
     state.startX = payload.startX
     state.startY = payload.startY
@@ -23,12 +23,12 @@ export default {
     state.moving = true
   },
 
-  // 元件移动结束
+  // Движение компонента заканчивается
   stopmove (state) {
     state.moving = false
   },
 
-  // 移动元件
+  // подвижный элемент
   move (state, payload) {
     var target = state.activeElement
     var dx = payload.x - state.startX
@@ -40,7 +40,7 @@ export default {
     target.top = top > 0 ? top : 0
   },
 
-  // 调整元件尺寸
+  // Отрегулируйте размер компонента
   resize (state, payload) {
     var dx = payload.x - state.startX
     var dy = payload.y - state.startY
@@ -74,20 +74,20 @@ export default {
     }
   },
 
-  // 复制元件
+  // копировать элемент
   copy (state, payload) {
     if (state.type !== 'page') {
       var copy = Object.assign({}, state.activeElement, {top: state.top, uuid: generate('1234567890abcdef', 10)})
 
-      // 由于容器的名称必须是唯一的，故复制容器需作处理
+      // Поскольку имя контейнера должно быть уникальным, необходимо обработать копирование контейнера.
       if (state.activeElement.isContainer) {
         var name = state.activeElement.name
         if (name) {
-          // 设置容器副本的名称
+          // Задайте имя копии контейнера
           var copyName = name.split('-')[0] + '-' + state.counter
           copy.name = copyName
 
-          // 复制容器内的图片和文本
+          // Скопируйте изображения и текст внутри контейнера
           for (var i = 0, len = state.widgets.length; i < len; i++) {
             if (state.widgets[i].belong === name) {
               state.widgets.push(
@@ -104,27 +104,27 @@ export default {
     }
   },
 
-  // 更新元件初始 top 值
+  // Обновите начальное верхнее значение компонента
   updateSrollTop (state, top) {
     state.top = top
   },
 
-  // 页面缩放
+  // масштабирование страницы
   zoom (state, val) {
     state.zoom = val
   },
 
-  // 初始化选中对象
+  // Инициализировать выбранный объект
   initActive (state) {
     state.activeElement = state.page
   },
 
-  // 删除选中元件
+  // удалить выбранный элемент
   delete (state) {
     var type = state.type
     if (type === 'page') return
 
-    // 如果删除的是容器，须将内部元件一并删除
+    // Если контейнер удаляется, внутренние компоненты должны быть удалены вместе
     if (state.activeElement.isContainer) {
       var name = state.activeElement.name
 
@@ -135,16 +135,16 @@ export default {
       }
     }
 
-    // 删除元件
+    // удалить компонент
     state.widgets.splice(state.index, 1)
 
-    // 重置 activeElement
+    // сбросить активный элемент activeElement
     state.activeElement = state.page
     // state.type = 'page'
     state.uuid = -1
   },
 
-  // 添加组件
+  // добавить компоненты
   addWidget (state, { data: data = null, item }) {
     let def = { top: state.top, uuid: generate('1234567890abcdef', 10) }
     let setting = JSON.parse(JSON.stringify(item.setting))
@@ -162,13 +162,13 @@ export default {
     }
   },
 
-  // 替换图片
+  // заменить изображение
   replaceImage (state, payload) {
     state.activeElement.width = payload[0].width
     state.activeElement.url = payload[0].url
   },
 
-  // 添加容器背景图
+  // Добавить фоновое изображение контейнера
   addContainerBackPic (state, payload) {
     state.activeElement.backPic = payload[0].url
     state.activeElement.backPicUrl = payload[0].src
@@ -176,13 +176,13 @@ export default {
     state.activeElement.height = payload[0].height
   },
 
-  // 添加背景图
+  // Добавить фоновое изображение
   addBackPic (state, payload) {
     state.activeElement.backPic = payload[0].url
     state.activeElement.backPicUrl = payload[0].src
   },
 
-  // 添加动画
+  // Добавить анимацию
   addAnimation (state) {
     state.animation.push({
       name: '',
@@ -201,7 +201,7 @@ export default {
     })
   },
 
-  // 为动画添加 keyframe
+  // добавить ключевой кадр в анимацию keyframe
   addkeyframe (state, name) {
     state.animation.map(val => {
       if (val.name === name) {
@@ -213,12 +213,12 @@ export default {
     })
   },
 
-  // 动画的播放与停止
+  // Воспроизвести и остановить анимацию
   setAnimation (state, status) {
     state.playState = status
   },
 
-  // 更新数据
+  // обновить данные
   updateData (state, {uuid, key, value}) {
     let widget = state.widgets.find(w => w.uuid === uuid)
     widget[key] = value

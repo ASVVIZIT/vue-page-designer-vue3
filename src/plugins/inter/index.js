@@ -48,8 +48,8 @@ export default class Inter {
       return message(...data)
     }
     if (typeof message === 'undefined') {
-      // Fallback to defaultMessage
-      // Fallback to path literal
+      // Возврат к (Fallback to defaultMessage)
+      // Возврат к (Fallback to path literal)
       message = typeof defaultMessage === 'undefined' ? path : defaultMessage
     }
     return this.template(message, ...data)

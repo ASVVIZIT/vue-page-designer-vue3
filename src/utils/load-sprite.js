@@ -1,26 +1,26 @@
-// Load a sprite
+// Загрузите спрайт
 export default function (url, id) {
   var x = new XMLHttpRequest()
 
-  // If the id is set and sprite exists, bail
+  // Если идентификатор установлен и спрайт существует, залог
   if (document.querySelector('#' + id)) {
     return
   }
 
-  // Create placeholder (to prevent loading twice)
+  // Создать заполнитель (чтобы предотвратить повторную загрузку)
   var container = document.createElement('div')
   container.setAttribute('hidden', '')
   container.setAttribute('id', id)
   document.body.insertBefore(container, document.body.childNodes[0])
 
-  // Check for CORS support
+  // Проверить поддержку CORS
   if ('withCredentials' in x) {
     x.open('GET', url, true)
   } else {
     return
   }
 
-  // Inject hidden div with sprite on load
+  // Внедрить скрытый div со спрайтом при загрузке
   x.onload = function () {
     container.innerHTML = x.responseText
   }

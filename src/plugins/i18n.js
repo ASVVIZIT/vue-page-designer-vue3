@@ -5,6 +5,6 @@ import Vue from 'vue'
 Vue.use(Inter)
 
 export default new Inter({
-  locale: 'cn', // setup locale
+  locale: 'ru', // настройка локали
   messages: messages
 })

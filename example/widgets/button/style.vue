@@ -3,7 +3,7 @@
     <hr>
     <div class="panel-row">
       <vpd-icon name="target" />
-      <div class="panel-label">背景色</div>
+      <div class="panel-label">фоновый цвет</div>
       <div class="panel-value">{{ activeElement.bgColor }}</div>
       <div class="panel-value">
         <input
@@ -14,7 +14,7 @@
 
     <div class="panel-row">
       <vpd-icon name="image" />
-      <div class="panel-label">背景图</div>
+      <div class="panel-label">фоновая картинка</div>
       <div class="panel-value">
         <div
           :style="{ backgroundImage: 'url(' + activeElement.backPic + ')' }"
@@ -29,7 +29,7 @@
 
     <div class="panel-row">
       <vpd-icon name="edit-3" />
-      <div class="panel-label">文字颜色</div>
+      <div class="panel-label">цвет текста</div>
       <div class="panel-value">{{ activeElement.color }}</div>
       <div>
         <input

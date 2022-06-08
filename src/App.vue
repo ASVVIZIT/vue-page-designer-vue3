@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <navbar/>
-    <div class="body container grid-xl">
+    <div class="body container">
       <div class="columns col-gapless">
         <toolbar
           :zoom="zoom"
@@ -45,12 +45,12 @@ export default {
   name: 'VuePageDesigner',
   inter,
   components: {
-    navbar, // 顶部导航栏
-    toolbar, // 左侧菜单栏
-    panel, // 右侧参数面板
-    viewport, // 页面画布
-    [toast.name]: toast, // 提示组件
-    [uploader.name]: uploader, // 上传组件
+    navbar, // верхняя панель навигации
+    toolbar, // левая строка меню
+    panel, // Правая панель параметров
+    viewport, // холст страницы
+    [toast.name]: toast, // компонент подсказки
+    [uploader.name]: uploader, // загрузить компонент
     [slider.name]: slider
   },
   mixins: [vpd],
@@ -58,7 +58,7 @@ export default {
     value: Object,
     locale: {
       type: String,
-      default: 'cn'
+      default: 'ru'
     },
     widgets: Object,
     upload: Function,
@@ -75,13 +75,13 @@ export default {
     loadSprite('//unpkg.com/vue-page-designer@0.7.1/dist/icons.svg', 'svgspriteit')
   },
   created () {
-    // 默认语言切换
+    // Переключение языка по умолчанию
     inter.setCurrentLocale(this.locale)
-    // 注册 widgets
+    // регистр widgets
     Vue.use(widget, {
       widgets: this.widgets
     })
-    // 初始化已有数据
+    // Инициализировать существующие данные
     if (this.value) {
       this.$vpd.replaceState(this.value)
     }
@@ -90,7 +90,7 @@ export default {
     })
   },
   mounted () {
-    // 初始化选中元件（将页面作为初始选中元件）
+    // Инициализировать выбранный компонент (использовать страницу в качестве начального выбранного компонента)
     this.$vpd.commit('initActive')
   },
 
@@ -126,7 +126,7 @@ export default {
   box-sizing: content-box;
   &.column {
     flex: none;
-    width: 120px;
+    width: 180px;
   }
 }
 .viewport {

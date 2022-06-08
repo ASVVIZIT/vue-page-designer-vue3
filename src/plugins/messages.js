@@ -1,4 +1,66 @@
 const messages = {
+  ru: {
+    data: {
+      no: 'no',
+      name: 'Имя',
+      duration: 'Продолжительность',
+      delay: 'Задерживать',
+      iteration: 'Итерация',
+      timing: 'Сроки',
+      direction: 'Направление',
+      levels: 'индекс Z',
+      components: 'Составные части',
+      added_components: 'Структура',
+
+      actions: {
+        add: 'Добавлять',
+        determine: 'Определять',
+        cancel: 'Отмена',
+        copy: 'Копировать',
+        save: 'Сохранять',
+        delete: 'Удалить'
+      },
+
+      names: {
+        params: 'Параметры',
+        event: 'События',
+        animation: 'Анимация',
+
+        width: 'Ширина',
+        height: 'Высота',
+        left: 'слева',
+        top: 'верх',
+
+        belonging: 'Принадлежащий контейнер'
+      },
+
+      events: {
+        onclick: 'По щелчку',
+        linkTo: 'Ссылка на'
+      }
+    },
+    messages: {
+      panel: {
+        animation: {
+          select: 'Выбрать анимацию'
+        },
+
+        alerts: {
+          imageUploadApiConfigurator: 'Пожалуйста, настройте API-адрес загрузки изображения',
+          unnamed_animations: 'Есть безымянные анимации, сначала назовите их.',
+          animation_name_required: 'Сначала назовите анимацию',
+          animation_name_validate: 'Не используйте символы, кроме английского и цифр.'
+        }
+      },
+
+      page: {
+        name: 'Название страницы',
+        height: 'Высота страницы',
+        background: 'Фон (Background)',
+        endTime: 'Время окончания'
+      }
+    }
+  },
   en: {
     data: {
       no: 'no',

@@ -1,6 +1,6 @@
 <template>
   <div v-show="elm">
-    <!-- 左 -->
+    <!-- влево -->
     <div
       :style="{
         height: elm.height + 'px',
@@ -12,7 +12,7 @@
       <div class="square"/>
     </div>
 
-    <!-- 右 -->
+    <!-- Вправо -->
     <div
       :style="{
         height: elm.height + 'px',
@@ -24,7 +24,7 @@
       <div class="square"/>
     </div>
 
-    <!-- 上 -->
+    <!-- Вверх -->
     <div
       :style="{
         width: elm.width + 'px',
@@ -36,7 +36,7 @@
       <div class="square"/>
     </div>
 
-    <!-- 下 -->
+    <!-- вниз -->
     <div
       :style="{
         width: elm.width + 'px',
@@ -56,7 +56,7 @@ export default {
   mixins: [vpd],
   data () {
     return {
-      type: '' // 调整方向 left | right | up | down
+      type: '' // Отрегулировать направление (влево | вправо | вверх | вниз ||| left | right | up | down)
     }
   },
   computed: {

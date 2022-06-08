@@ -2,15 +2,14 @@
   <div
     v-show="moving"
     class="guides">
-    <!-- 横线 -->
+    <!-- Горизонтальная линия -->
     <div
       v-for="val in horiz"
       v-show="attachHoriz(val.val)"
       :key="val.id"
       :style="{top: val.val + 'px'}"
       class="horiz"/>
-
-    <!-- 竖线 -->
+    <!-- Вертикальная полоса -->
     <div
       v-for="val in verti"
       v-show="attachVerti(val.val)"
@@ -36,9 +35,9 @@ export default {
       var uuid = state.uuid
 
       state.widgets.forEach(item => {
-        // 排除选中元素
+        // Исключить выбранные элементы
         if (item.hasGuide && item.uuid === uuid) return
-        // 排除容器中的元件
+        // Исключить компоненты из контейнеров
         if (item.hasGuide && item.belong !== 'page') return
 
         guides.push({
@@ -53,12 +52,12 @@ export default {
       return guides
     },
     /**
-     * 获取参考线
+     * Получить опорные линии
      *
-     * 取画布中线以及每个元件上下边的坐标
-     * 排除正在移动的元件
-     * 排除画布边缘坐标
-     * 排除重复坐标
+     * Возьмите центральную линию холста и координаты верхнего и нижнего краев каждого компонента.
+     * Исключить движущиеся компоненты
+     * Исключить координаты края холста
+     * Исключить повторяющиеся координаты
      */
     horiz () {
       var guides = this.guides
@@ -110,7 +109,7 @@ export default {
       return cor
     },
 
-    // 移动元素上下边坐标
+    // Переместить верхнюю и нижнюю координаты элемента
     horizontal () {
       var a = this.$vpd.state.activeElement
       if (a) {
@@ -121,7 +120,7 @@ export default {
       }
     },
 
-    // 移动元素左中右坐标
+    // Переместить левую, среднюю и правую координаты элемента
     vertical () {
       var a = this.$vpd.state.activeElement
       if (a) {

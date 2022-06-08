@@ -11,7 +11,7 @@
       class="screen"
       @dblclick="replaceImage">
 
-      <!-- 组件 -->
+      <!-- Составные части -->
       <component
         v-for="val in widgetStore"
         :is="val.type"
@@ -40,10 +40,10 @@
           class="layer layer-child" />
       </component>
 
-      <!-- 参考线 -->
+      <!-- опорная линия -->
       <ref/>
 
-      <!-- 尺寸控制器 -->
+      <!-- регулятор размера -->
       <control/>
     </div>
   </div>
@@ -58,8 +58,8 @@ import vpd from '../../mixins/vpd'
 export default {
   name: 'Viewport',
   components: {
-    ref: ref, // 参考线
-    control: control // 尺寸控制
+    ref: ref, // опорная линия
+    control: control // контроль размера
   },
 
   mixins: [move, vpd],
@@ -71,22 +71,22 @@ export default {
   },
 
   computed: {
-    // 已添加的组件
+    // добавленные компоненты
     widgetStore () {
       return this.$vpd.state.widgets.filter(item => item.belong === 'page')
     },
 
-    // 画布高度
+    // высота холста
     height () {
       return this.$vpd.state.page.height
     },
 
-    // 页面背景色
+    // цвет фона страницы
     backgroundColor () {
       return this.$vpd.state.page.backgroundColor
     },
 
-    // 选中项id
+    // Выбранный элемент id
     id () {
       // var type = this.$vpd.state.type
       // var index = this.$vpd.state.index
@@ -95,43 +95,43 @@ export default {
       return this.$vpd.state.uuid
     },
 
-    // 动画播放状态
+    // Статус воспроизведения анимации
     playState () {
       return this.$vpd.state.playState
     }
   },
 
   mounted () {
-    // 采用事件代理的方式监听元件的选中操作
+    // Используйте прокси-сервер событий для мониторинга операции выбора компонентов
     document
       .getElementById('viewport')
       .addEventListener('mousedown', this.handleSelection, false)
 
-    // 绑定键盘上下左右键用于元件的移动
+    // Привязать клавиатуру вверх, вниз, влево и вправо для перемещения компонентов
     document.addEventListener(
       'keydown',
       e => {
         e.stopPropagation()
         var target = this.$vpd.state.activeElement
 
-        // 左
+        // Arrow Left
         if (e.keyCode === 37 && target.left) {
           target.left -= 1
           return
         }
-        // 上
+        // Arrow Up
         if (e.keyCode === 38 && target.top) {
           e.preventDefault()
           target.top -= 1
           return
         }
-        // 右
+        // Arrow Right
         if (e.keyCode === 39 && target.left) {
           target.left += 1
           return
         }
 
-        // 下
+        // Arrow Down
         if (e.keyCode === 40 && target.top) {
           e.preventDefault()
           target.top += 1
@@ -149,25 +149,25 @@ export default {
       if (type) {
         var uuid = target.getAttribute('data-uuid')
 
-        // 设置选中元素
+        // установить выбранный элемент
         this.$vpd.commit('select', {
           uuid: uuid || -1
         })
 
-        // 绑定移动事件：只有从属于 page 的，除背景图以外的元件才能移动
+        // Привязка событий перемещения: только те, которые принадлежат странице, могут перемещаться, за исключением фонового изображения.
         target = this.$vpd.state.activeElement
         if (target.belong === 'page' && target.dragable) {
-          this.initmovement(e) // 参见 mixins
+          this.initmovement(e) // см миксины mixins
         }
       } else {
-        // 取消选中元素
+        // снять флажок с элемента
         this.$vpd.commit('select', {
           uuid: -1
         })
       }
     },
 
-    // 替换图片
+    // заменить элемент изображения
     replaceImage (e) {
       if (this.$vpd.state.activeElement.isUpload) {
         this.$vpd.$emit('upload', payload => {
@@ -176,7 +176,7 @@ export default {
       }
     },
 
-    // 获取子组件
+    // получить дочерний компонент
     getChilds (name) {
       return this.$vpd.state.widgets.filter(
         item => item.belong === name

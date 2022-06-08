@@ -54,12 +54,13 @@ export default {
     }
   },
   methods: {
-    // 添加组件
+    // Добавить компоненты
     addWidget (e, item) {
       this.$vpd.dispatch('addWidget', item)
     },
 
-    // 为确保添加的元件出现在可视区内，用画布向上滚动距离作为元件初始 top 值
+    // Чтобы добавленные компоненты отображались в видимой области
+    // Используйте расстояние прокрутки холста в качестве начального верхнего значения элемента.
     updateSrollTop () {
       var top = document.getElementById('viewport').scrollTop / this.zoom * 100
       this.$vpd.commit('updateSrollTop', top)
@@ -91,7 +92,7 @@ export default {
     margin: 0;
   }
   details {
-    padding: 10px;
+    padding: 16px;
   }
   summary {
     padding: 5px 0;

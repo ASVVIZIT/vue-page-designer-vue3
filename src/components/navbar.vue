@@ -7,19 +7,19 @@
       <section class="navbar-section">
         <a
           class="btn btn-link tooltip tooltip-bottom"
-          data-tooltip="复制元件 Ctrl + C"
+          data-tooltip="Копировать элемент (Ctrl + C)"
           @click="copyWidget">
           <vpd-icon name="copy" /> {{ $t('data.actions.copy') }}
         </a>
         <a
           class="btn btn-link tooltip tooltip-bottom"
-          data-tooltip="删除元件 Delete"
+          data-tooltip="Удалить компонент (Delete)"
           @click="dele">
           <vpd-icon name="trash-2" /> {{ $t('data.actions.delete') }}
         </a>
         <a
           class="btn btn-link tooltip tooltip-bottom"
-          data-tooltip="保存 Ctrl + S"
+          data-tooltip="Сохранить (Ctrl + S)"
           @click="save"><vpd-icon name="save" /> {{ $t('data.actions.save') }}</a>
         <select
           class="lang-change"
@@ -50,7 +50,7 @@ export default {
     }
   },
   mounted () {
-    // Ctrl + C 复制元件
+    // Копировать элемент (Ctrl + C)
     document.addEventListener(
       'keyup',
       e => {
@@ -62,7 +62,7 @@ export default {
       true
     )
 
-    // Delete 删除选中元件
+    // Удалить выбранный элемент (Delete)
     document.addEventListener(
       'keyup',
       e => {
@@ -74,7 +74,7 @@ export default {
       true
     )
 
-    // Ctrl + S 保存
+    // Сохранить (Ctrl + S)
     document.addEventListener(
       'keyup',
       e => {
@@ -88,22 +88,22 @@ export default {
   },
 
   methods: {
-    // 保存
+    // Сохранить
     save () {
       this.$vpd.dispatch('save')
     },
 
-    // 复制元件
+    // Копировать элемент
     copyWidget () {
       this.$vpd.commit('copy')
     },
 
-    // 删除元件
+    // Удалить компонент
     dele () {
       this.$vpd.commit('delete')
     },
 
-    // 切换语言
+    // Смена языка
     changeLang (e) {
       this.$inter.setCurrentLocale(e.target.value)
     }
