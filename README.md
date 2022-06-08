@@ -10,10 +10,17 @@
 
 A drag-and-drop mobile website builder base on Vue.
 
-## Install
+## Install yarn
 
 ```bash
 yarn add vue-page-designer-vue3
+```
+
+
+## Or Install npm
+
+```bash
+npm i vue-page-designer-vue3
 ```
 
 You can start it quickly, in main.js:
