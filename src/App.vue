@@ -45,12 +45,12 @@ export default {
   name: 'VuePageDesignerVue3',
   inter,
   components: {
-    navbar, // верхняя панель навигации
-    toolbar, // левая строка меню
+    navbar, // Верхняя панель навигации
+    toolbar, // Левая строка меню
     panel, // Правая панель параметров
-    viewport, // холст страницы
-    [toast.name]: toast, // компонент подсказки
-    [uploader.name]: uploader, // загрузить компонент
+    viewport, // Холст страницы
+    [toast.name]: toast, // Компонент подсказки
+    [uploader.name]: uploader, // Загрузить компонент
     [slider.name]: slider
   },
   mixins: [vpd],
@@ -77,7 +77,7 @@ export default {
   created () {
     // Переключение языка по умолчанию
     inter.setCurrentLocale(this.locale)
-    // регистр widgets
+    // Регистр widgets
     Vue.use(widget, {
       widgets: this.widgets
     })
