@@ -79,7 +79,7 @@
         <div class="panel-label">{{ $t('data.names.belonging') }}</div>
         <div class="panel-value">
           <select v-model="activeElement.belong">
-            <option>страница</option>
+            <option value="page">страница</option>
             <option
               v-for="(val, index) in containerName"
               :key="index">{{ val }}</option>
