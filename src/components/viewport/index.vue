@@ -140,7 +140,10 @@ export default {
       true
     )
   },
-
+  beforeDestroy () {
+    document.removeEventListener('keydown', this.handleSelection)
+    document.removeEventListener('keydown', this.replaceImage)
+  },
   methods: {
     handleSelection (e) {
       var target = e.target

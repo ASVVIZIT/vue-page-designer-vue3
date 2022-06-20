@@ -2,7 +2,7 @@
   <div
     v-show="moving"
     class="guides">
-    <!-- Горизонтальная линия -->
+    <!-- Горизонтальная полоса -->
     <div
       v-for="val in horiz"
       v-show="attachHoriz(val.val)"
@@ -154,14 +154,14 @@ export default {
 .verti {
   position: absolute;
   width: 1px;
-  height: 1000%;
+  height: 1200%;
   top: -50px;
   background: #18ffff;
 }
 .horiz {
   position: absolute;
   height: 0.5px;
-  width: 1000%;
+  width: 1200%;
   left: -500%;
   background: #18ffff;
 }

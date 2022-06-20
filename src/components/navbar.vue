@@ -76,17 +76,24 @@ export default {
 
     // Сохранить (Ctrl + S)
     document.addEventListener(
-      'keyup',
+      'keydown',
       e => {
+        e.preventDefault()
         e.stopPropagation()
         if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) {
           this.save()
         }
+        e.preventDefault()
+        e.stopPropagation()
       },
       true
     )
   },
-
+  beforeDestroy () {
+    document.removeEventListener('keyup', this.dele)
+    document.removeEventListener('keyup', this.copyWidget)
+    document.removeEventListener('keydown', this.save)
+  },
   methods: {
     // Сохранить
     save () {
